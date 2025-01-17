@@ -1,4 +1,3 @@
-
 /*
 Project Name : MALVIN XMD
 Creator      : Malvin King ( Mr Lord Malvin )
@@ -8,91 +7,96 @@ Support      : wa.me/263714757857
 
 
 
+
 const config = require('../config')
-const {cmd , commands} = require('../command')
+const { cmd, commands } = require('../command');
 const os = require("os")
 const {runtime} = require('../lib/functions')
 const axios = require('axios')
 
 cmd({
-
     pattern: "allmenu",
-
-    react: "🛸",
-
-    alias: ["panel","commands"],
-
-    desc: "Get bot\'s command list.",
-
-    category: "main",
-
-    use: '.allmenu',
-
+    
+    alias: "menu2",
+    
+    desc: "menu the bot",
+    
+    category: "menu2",
+    
+    react: "🛠️",
+    
     filename: __filename
-
-},
-
-async(conn, mek, m,{from, l, quoted, body, isCmd, umarmd, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-
-try{
-let madeMenu = `╭━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
-
+}, 
+async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+    try {
+        let dec = `
 *⇆ ʜɪɪ ᴍʏ ᴅᴇᴀʀ ғʀɪᴇɴᴅ ⇆*
 
-     *${pushname}*
-     
-╰━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
+     *『 ${pushname} 』*
 
  *ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴍᴀʟᴠɪɴ xᴍᴅ ғᴜʟʟ ᴄᴏᴍᴍᴀɴᴅ ʟɪsᴛ*
 
-*ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴍᴀʟᴠɪɴ ᴋɪɴɢ👨🏻‍💻*
+*ᴅᴇᴠᴇʟᴏᴘᴇᴅ ʙʏ ᴍᴀʟᴠɪɴ ᴋɪɴɢ (🇿🇼)*
 
-
-╭─────────────···▸*
-*❖│▸* *ʀᴜɴᴛɪᴍᴇ* : ${runtime(process.uptime())}
-*❖│▸* *ᴍᴏᴅᴇ* : *[${config.MODE}]*
-*❖│▸* *ᴘʀᴇғɪx* : *[${config.PREFIX}]*
-*❖│▸* *ʀᴀᴍ ᴜsᴇ* : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
-*❖│▸* *ɴᴀᴍᴇ ʙᴏᴛ* : *❖ᴍᴀʟᴠɪɴ xᴍᴅ❖*
-*❖│▸* *ᴄʀᴇᴀᴛᴏʀ* : *➺ᴍᴀʟᴠɪɴ ᴋɪɴɢ࿐*
-*❖│▸* *ᴠᴇʀsɪᴏɴs* : *ᴠ.2.0.0*
-*❖│▸* *ᴍᴇɴᴜ ᴄᴍᴅ* : *ᴍᴇɴᴜ ʟɪsᴛ*
+*╭─────────────···▸*
+*┇* *ʀᴜɴᴛɪᴍᴇ* : ${runtime(process.uptime())}
+*┇* *ᴍᴏᴅᴇ* : *[${config.MODE}]*
+*┇* *ᴘʀᴇғɪx* : *[${config.PREFIX}]*
+*┇* *ʀᴀᴍ ᴜsᴇ* : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
+*┇* *ɴᴀᴍᴇ ʙᴏᴛ* : *ᴍᴀʟᴠɪɴ xᴍᴅ*
+*┇* *ᴠᴇʀsɪᴏɴs* : *ᴠ.1.0.4 ʙᴇᴛᴀ*
+*┇* *ᴍᴇɴᴜ ᴄᴍᴅ* : *ᴍᴇɴᴜ ʟɪsᴛ*
 *╰────────────···▸▸*
 
-*♡︎•━━━ᴀʟʟ ᴍᴇɴᴜ ᴄᴏᴍᴍᴀɴᴅs━━━•♡︎*
+ 🚀ᴊᴏɪɴ ᴍᴀʟᴠɪɴ xᴍᴅ ɴᴇxᴜs ᴄʜᴀɴɴᴇʟ 🚀
 
-꧁◈╾ 𝙾𝚆𝙽𝙴𝚁 𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙻𝙸𝚂𝚃 ╼◈꧂*
-
+  『𝙾𝚆𝙽𝙴𝚁 𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙻𝙸𝚂𝚃』
 ╭───────────────
 ┋⚉ *.ᴏᴡɴᴇʀ*
 ┋⚉ *.ʀᴇᴘᴏ*
 ┋⚉ *.ꜱʏꜱᴛᴇᴍ*
+┋⚉ *.ᴠᴇᴛsɪᴏɴ*
 ┋⚉ *.ʙʟᴏᴄᴋ*
 ┋⚉ *.ᴜɴʙʟᴏᴄᴋ*
 ┋⚉ *.ᴄʟᴇᴀʀᴄʜᴀᴛs*
 ┋⚉ *.sᴇᴛᴘᴘ*
 ┋⚉ *.ʙʀᴏᴀᴅᴄᴀsᴛ*
+┋⚉ *.ᴘɪɴɢ*
+┋⚉ *.ᴘɪɴɢ2*
 ┋⚉ *.ᴊɪᴅ*
 ┋⚉ *.ɢᴊɪᴅ*
+┋⚉ *.ᴊɪᴅ1*
+┋⚉ *.ᴊɪᴅ2*
 ┋⚉ *.ʀᴇꜱᴛᴀʀᴛ*
+┋⚉ *.ᴘᴀɪʀ 263xxx*
+┋⚉ *.ᴘᴀɪʀ2 263xxx*
 ╰━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
 
-꧁◈╾ 𝙲𝙾𝙽𝚅𝙴𝚁𝚃 𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙻𝙸𝚂𝚃 ╼◈꧂
-
+  『𝙲𝙾𝙽𝚅𝙴𝚁𝚃 𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙻𝙸𝚂𝚃』
 ╭─────────────
 ┋ ☻ *ᴄᴏɴᴠᴇʀᴛ* 
 ┋ ☻ *ss* 
+┋ ☻ *ᴛʀᴛ*
+┋ ☻ *ᴛᴛs*
+┋ ☻ *ᴠᴠ*
+┋ ☻ *ғᴀɴᴄʏ*
+┋ ☻ *sᴛɪᴄᴋᴇʀ*
+┋ ☻ *ʟᴏɢᴏ*
+┋ ☻ *ʟᴏɢᴏ1*
+┋ ☻ *ʟᴏɢᴏ2*
 ╰━━━━∙⋆⋅⋆∙━ ─┉─ •┉─⊷
 
-꧁*◈╾ 𝙰𝙸 𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙻𝙸𝚂𝚃 ╼◈꧂*
-
+  『𝙰𝙸 𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙻𝙸𝚂𝚃』
 ╭─────────────
 ┋ ☻ *ᴀɪ* 
-╰━━━━∙⋆⋅⋆∙━ ─ • ─┉─⊷
+┋ ☻ *ɢᴘᴛ*
+┋ ☻ *ᴍᴀʟᴠɪɴ*
+┋ ☻ *ɢᴇᴍɪɴɪ*
+┋ ☻ *ɢᴘᴛ3*
+╰━━━━∙⋆⋅⋆∙━━ ─ • ─┉─⊷
 
-*꧁◈╾ 𝚂𝙴𝙰𝚁𝙲𝙷 𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙻𝙸𝚂𝚃 ╼◈꧂*
-
-╭──────── ────
+  『𝚂𝙴𝙰𝚁𝙲𝙷 𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙻𝙸𝚂𝚃』
+╭────────── ────
 ┋ ◉ *.ᴘʟᴀʏ* 
 ┋ ◉ *.ᴠɪᴅᴇᴏ* 
 ┋ ◉ *.ʏᴛ  <ᴛᴇxᴛ>*
@@ -100,54 +104,66 @@ let madeMenu = `╭━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
 ┋ ◉ *.ᴍᴏᴠɪᴇ <ᴛᴇxᴛ>*
 ┋ ◉ *.ɪᴍɢ <ᴛᴇxᴛ>*
 ┋ ◉ *.ᴡᴇᴀᴛʜᴇʀ <ᴄɪᴛʏ>*
-╰━━━━∙⋆⋅⋆∙━ ─┉─ •┉─⊷
+┋ ◉ *.ʟʏʀɪᴄs*
+┋ ◉ *.ɢᴏᴏɢʟᴇ*
+╰━━━━∙⋆⋅⋆∙━ ─┉─ •─ •┉─⊷
 
-*꧁◈ 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙻𝙸𝚂𝚃 ╼◈꧂*
-
-╭─────────────
+  『𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙻𝙸𝚂𝚃』
+╭────────────────
 ┋ ☻ *ᴀᴘᴋ* 
 ┋ ☻ *ᴛᴡɪᴛᴛᴇʀ* 
 ┋ ☻ *ɢᴅʀɪᴠᴇ* 
 ┋ ☻ *ᴍᴇᴅɪᴀғɪʀᴇ* 
-┋ ☻ *ғʙ*
-┋ ☻ *ɪɢ* 
+┋ ☻ *ᴍᴇᴅɪᴀғɪʀᴇᴘʀᴏ*
+┋ ☻ *sᴘᴏᴛɪғʏ*
+┋ ☻ *ғᴀᴄᴇʙᴏᴏᴋ*
+┋ ☻ *ɪɴsᴛᴀ* 
 ┋ ☻ *ᴍᴏᴠɪᴇ*
 ┋ ☻ *sᴏɴɢ* 
 ┋ ☻ *ᴠɪᴅᴇᴏ* 
 ┋ ☻ *ᴠɪᴅᴇᴏ2*
 ┋ ☻ *ᴠɪᴅᴇᴏ3*
-┋ ☻ *ᴠɪᴅᴇᴏ4*
+┋ ☻ *ᴠɪᴅᴘʀᴏ*
 ┋ ☻ *ᴘʟᴀʏ*
 ┋ ☻ *ᴘʟᴀʏ2*
 ┋ ☻ *ᴘʟᴀʏ3*
-┋ ☻ *ᴘʟᴀʏ4*
+┋ ☻ *ᴘʟᴀʏᴘʀᴏ*
 ┋ ☻ *ʏᴛ*
 ┋ ☻ *ʏᴛᴍᴘ3*
 ┋ ☻ *ʏᴛᴍᴘ4*
 ┋ ☻ *ᴛᴛ/ ᴛɪᴋᴛᴏᴋ* 
 ┋ ☻ *ɪᴍɢ* 
-╰━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
+┋ ☻ *ʙᴀɪsᴄᴏᴘᴇ*
+┋ ☻ *ɢɪɴɪsɪʟᴀ*
+╰━━━━∙⋆⋅⋆∙━ ─┉─ ───• ─┉─⊷
 
-*꧁◈╾ 𝙼𝙰𝙸𝙽 𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙻𝙸𝚂𝚃 ╼◈꧂*
-
+  『𝙼𝙰𝙸𝙽 𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙻𝙸𝚂𝚃』
 ╭─────────────
 ┋ ◕ *ᴀʟɪᴠᴇ* 
 ┋ ◕ *ᴍᴇɴᴜ* 
-┋ ◕ *ᴀʟʟᴍᴇɴᴜ* 
+┋ ◕ *ᴀʟʟᴍᴇɴᴜ/ᴍᴇɴᴜ2* 
+┋ ◉ *ʟɪsᴛ*
 ┋ ◕ *sᴜᴘᴘᴏʀᴛ* 
 ┋ ◕ *sʏsᴛᴇᴍ* 
 ┋ ◕ *ᴘɪɴɢ* 
 ┋ ◕ *ʀᴜɴᴛɪᴍᴇ* 
 ┋ ◕ *ᴜᴘᴅᴀᴛᴇ*
+┋ ◕ *ɪɴғᴏ*
+┋ ◕ *ᴀʙᴏᴜᴛ*
+┋ ◕ *ᴛɪɴʏᴜʀʟ*
+┋ ◕ *ᴏʙғ/ᴏʙғᴜsᴄᴀᴛᴇ*
+┋ ◉ *ϙʀᴄᴏᴅᴇ*
 ╰━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
 
-*꧁◈╾ 𝙶𝚁𝙾𝚄𝙿 𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙻𝙸𝚂𝚃 ╼◈꧂*
-
+  『𝙶𝚁𝙾𝚄𝙿 𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙻𝙸𝚂𝚃』
 ╭────────────
 ┋ ☛ *ᴘʀɪᴍᴏᴛᴇ* 
 ┋ ☛ *ᴅᴇᴍᴏᴛᴇ* 
+┋ ☛ *ᴅᴇʟᴇᴛᴇ*
 ┋ ☛ *ᴋɪᴄᴋ* 
 ┋ ☛ *ᴋɪᴄᴋᴀʟʟ*
+┋ ☛ *ᴋɪᴄᴋᴀʟʟ2*
+┋ ☛ *ᴋɪᴄᴋᴀʟʟ3
 ┋ ☛ *ᴀᴅᴅ* 
 ┋ ☛ *ᴀᴅᴍɪɴs* 
 ┋ ☛ *ɢᴇᴛᴘɪᴄ* 
@@ -168,37 +184,80 @@ let madeMenu = `╭━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
 ┋ ☛ *sᴇᴛsᴜʙᴊᴇᴄᴛ*
 ╰━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
 
-*꧁◈╾ 𝙵𝚄𝙽 𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙻𝙸𝚂𝚃 ╼◈꧂*
-
+  『𝙵𝚄𝙽 𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙻𝙸𝚂𝚃』
 ╭────────────
 ┋ ◉ *ғᴀᴄᴛ* 
 ┋ ◉ *ʜᴀᴄᴋ*  
 ┋ ◉ *ʟᴏʟɪ* 
+┋ ◉ *ᴡᴀɪғᴜ*
+┋ ◉ *ɴᴇᴋᴏ*
+┋ ◉ *ᴍᴇɢᴜᴍɪɴ*
+┋ ◉ *ᴀᴡᴏᴏ*
+┋ ◉ *ʀᴡ/ᴡᴀʟʟᴘᴀᴘᴇʀ*
+┋ ◉ *ʙɪʙʟᴇ*
 ╰━━━━∙⋆⋅⋆∙━ ─┉─• ─⊷
 
-*꧁◈╾ 𝙾𝚃𝙷𝙴𝚁 𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙻𝙸𝚂𝚃 ╼◈꧂*
-
-╭────────────
-┋ ☻ *.ᴛʀᴛ*
+  『𝙾𝚃𝙷𝙴𝚁 𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙻𝙸𝚂𝚃』
+╭┈┈┈┈┈┉┉┉┈┈┈┈┈┈┈
 ┋ ☻ *.ᴍᴏᴠɪᴇ*
 ┋ ☻ *.ɢꜱᴛᴀʟᴋ*
 ┋ ☻ *.ɢᴘᴀꜱꜱ*
-┋ ☻ *.ɢɪᴛᴄʟᴏɴᴇ
+┋ ☻ *.ɢɪᴛᴄʟᴏɴᴇ*
 ┋ ☻ *.ʀᴇᴘᴏ*
-┋ ☻ *.ғᴀɴᴄʏ
+┋ ☻ *ᴅᴇғɪɴᴇ*
 ┋ ☻ *.ᴜʀʟ*
 ┋ ☻ *.sᴀᴠᴇ*
+┋ ☻ *.ϙᴜᴏᴛᴇ*
+┋ ☻ *.sᴛᴀᴛᴜs*
+┋ ☻ *.sʀᴇᴘᴏ*
+╰━━━━∙⋆⋅⋆∙━ ─┉┉─⊷
+
+  『𝚃𝙾𝙾𝙻𝚂 𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙻𝙸𝚂𝚃』
+╭────────────
+┋ ☻ *.ᴋɪss*
+┋ ☻ *.ʜᴀɴᴅ*
+┋ ☻ *.ʜᴀᴘᴘʏ*
+┋ ☻ *.ʜᴇᴀʀᴛ*
+┋ ☻ *.ᴀɴɢᴇʀ*
+┋ ☻ *.sᴀᴅ*
+┋ ☻ *.sʜʏ*
+┋ ☻ *.ᴍᴏᴏɴ*
+┋ ☻ *.ᴄᴏɴғᴜsᴇᴅ*
+┋ ☻ *.ɴɪᴋᴀʟ*
 ╰━━━━∙⋆⋅⋆∙━ ─ • ─┉─⊷
 
-⭓ *ᴛᴏᴛᴀʟ ᴄᴏᴍᴍᴀɴᴅs ʟɪsᴛ ᴏᴛʜᴇʀ 100+*
+⭓ _ᴛᴏᴛᴀʟ ᴄᴏᴍᴍᴀɴᴅs ʟɪsᴛ ᴏᴛʜᴇʀ 120+_
 
-> ©ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍᴀʟᴠɪɴ ᴛᴇᴄʜッ
-`
+> ${config.DESCRIPTION}`;
 
-await conn.sendMessage(from,{image:{url:config.MENU_IMG},caption:madeMenu},{quoted:mek})
+        await conn.sendMessage(
+            from,
+            {
+                image: { url: `https://files.catbox.moe/7pg2gp.jpg` },
+                caption: dec,
+                contextInfo: {
+                    mentionedJid: [m.sender],
+                    forwardingScore: 999,
+                    isForwarded: true,
+                    forwardedNewsletterMessageInfo: {
+                        newsletterJid: '120363306168354073@newsletter',
+                        newsletterName: '『 𝙼𝙰𝙻𝚅𝙸𝙽-𝚇𝙼𝙳 』',
+                        serverMessageId: 143
+                    }
+                }
+            },
+            { quoted: mek }
+        );
 
-}catch(e){
-console.log(e)
-reply(`${e}`)
-}
-})
+        // Send audio
+        await conn.sendMessage(from, {
+            audio: { url: 'https://github.com/kingmalvn/malvin-database/raw/refs/heads/main/Media/menu.mp3' },
+            mimetype: 'audio/mp4',
+            ptt: true
+        }, { quoted: mek });
+        
+    } catch (e) {
+        console.log(e);
+        reply(`${e}`);
+    }
+});

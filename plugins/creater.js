@@ -1,1 +1,74 @@
-function b(c,d){const e=a();return b=function(f,g){f=f-(-0x2459+-0x20c7*-0x1+0x392);let h=e[f];return h;},b(c,d);}const p=b;function a(){const r=['ct.','64057CvrwcF','2640404nJSQPg','174072YiYEJv','80jAHZOq','2005805UPbYUn','6FarIRJ','2371782NKobtD','1890296IEtYuZ','18996219aEaqQO','../command','owner','👨‍💻','lordm','Get\x20owner\x20','main','+263714757','Malvin\x20Kin','TECH\x20LORD','BEGIN:VCAR','857@s.what','iBlUN','adqDD','QmPiN','ORG:','TEL;type=C','ELL;type=V','replace','PeQva','sendMessag','e\x20owner\x27s\x20','contact:\x20','857','PgzBC','key','error','re\x20was\x20an\x20','error\x20fetc','hing\x20the\x20o','wner\x20conta'];a=function(){return r;};return a();}(function(c,d){const o=b,e=c();while(!![]){try{const f=parseInt(o(0x0))/(0x1*-0x2027+0x2*0x647+0x139a)+parseInt(o(0x1))/(0x1*0x2242+0x4cf*-0x1+-0x1*0x1d71)+-parseInt(o(0x2))/(-0xa4a+-0x37*-0xc+0x7b9)*(-parseInt(o(0x3))/(-0x1*0xfbf+-0x25*0xc9+-0x4*-0xb34))+parseInt(o(0x4))/(-0x1825+0x1d2*0x3+0x2ac*0x7)*(parseInt(o(0x5))/(0x1a*-0xca+0x789*-0x3+-0x5*-0x8a1))+parseInt(o(0x6))/(0x34+-0x13*-0x1ab+-0x1fde)+-parseInt(o(0x7))/(-0x4*0x1a2+0x11d6*0x1+0x1*-0xb46)+-parseInt(o(0x8))/(0x129b+-0x1af6*0x1+-0x2*-0x432);if(f===d)break;else e['push'](e['shift']());}catch(g){e['push'](e['shift']());}}}(a,0x5387*-0x9+0x2236*-0x95+0x252841*0x1));const {cmd}=require(p(0x9));cmd({'pattern':p(0xa),'react':p(0xb),'alias':['malvin',p(0xc)],'desc':p(0xd)+'number','category':p(0xe),'filename':__filename},async(c,d,e,{from:f})=>{const q=b,g={'oxkkO':q(0xf)+'857','kDfiS':q(0x10)+'g','QKcRO':q(0x11),'iBlUN':function(h,i){return h+i;},'adqDD':function(h,i){return h+i;},'QmPiN':q(0x12)+'D\x0a','PeQva':'END:VCARD','PgzBC':q(0xf)+q(0x13)+'sapp.net'};try{const h=g['oxkkO'],i=g['kDfiS'],j=g['QKcRO'],k=g[q(0x14)](g[q(0x15)](g[q(0x16)]+('VERSION:3.'+'0\x0a'),'FN:'+i+'\x0a')+(q(0x17)+j+';\x0a')+(q(0x18)+q(0x19)+'OICE;waid='+h[q(0x1a)]('+','')+':'+h+'\x0a'),g[q(0x1b)]),l=await c[q(0x1c)+'e'](f,{'contacts':{'displayName':i,'contacts':[{'vcard':k}]}});await c['sendMessag'+'e'](f,{'text':'This\x20is\x20th'+q(0x1d)+q(0x1e)+i,'contextInfo':{'mentionedJid':[g[q(0x14)](h[q(0x1a)]('+263714757'+q(0x1f)),g[q(0x20)])],'quotedMessageId':l[q(0x21)]['id']}},{'quoted':d});}catch(n){console[q(0x22)](n),await c[q(0x1c)+'e'](f,{'text':'Sorry,\x20the'+q(0x23)+q(0x24)+q(0x25)+q(0x26)+q(0x27)},{'quoted':d});}});
+/*
+Project Name : MALVIN XMD
+Creator      : Malvin King ( Mr Lord Malvin )
+Repo         : https//github.com/kingmalvn/MALVIN-XMD
+Support      : wa.me/263714757857
+*/
+
+
+
+
+const { cmd } = require('../command');
+const config = require('../config');
+
+cmd({
+    pattern: "owner",
+    react: "✅", 
+    desc: "Get owner number",
+    category: "main",
+    filename: __filename
+}, 
+async (conn, mek, m, { from }) => {
+    try {
+        const ownerNumber = config.OWNER_NUMBER; // Fetch owner number from config
+        const ownerName = config.OWNER_NAME;     // Fetch owner name from config
+
+        const vcard = 'BEGIN:VCARD\n' +
+                      'VERSION:3.0\n' +
+                      `FN:${ownerName}\n` +  
+                      `TEL;type=CELL;type=VOICE;waid=${ownerNumber.replace('+', '')}:${ownerNumber}\n` + 
+                      'END:VCARD';
+
+        // Send the vCard
+        const sentVCard = await conn.sendMessage(from, {
+            contacts: {
+                displayName: ownerName,
+                contacts: [{ vcard }]
+            }
+        });
+
+        // Send the owner contact message with image and audio
+        await conn.sendMessage(from, {
+            image: { url: 'https://i.postimg.cc/Tw01QQgN/White-and-Green-Simple-Professional-Business-Project-Presentation-3.jpg' }, // Image URL from your request
+            caption: `
+╭┈┈┈───────┈┈┈┈┈┈┈┈┈
+┊• *Here are the owner details*
+┊• *𝑁𝑎𝑚𝑒* : ${ownerName}
+┊• *𝑁𝑢𝑚𝑏𝑒𝑟*: ${ownerNumber}
+┆• *𝑉𝑒𝑟𝑠𝑖𝑜𝑛*: _1.0.4_
+╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+> © ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴍᴀʟᴠɪɴ ᴋɪɴɢ`, // Display the owner's details
+            contextInfo: {
+                mentionedJid: [`${ownerNumber.replace('+', '')}@s.whatsapp.net`], 
+                forwardingScore: 999,
+                isForwarded: true,
+                forwardedNewsletterMessageInfo: {
+                    newsletterJid: '120363306168354073@newsletter',
+                    newsletterName: '𝑀𝑟 𝑀𝑎𝑙𝑣𝑖𝑛 𝐾𝑖𝑛𝑔',
+                    serverMessageId: 143
+                }            
+            }
+        }, { quoted: mek });
+
+        // Send audio as per your request
+        await conn.sendMessage(from, {
+            audio: { url: 'https://github.com/kingmalvn/malvin-database/raw/refs/heads/main/Media/menu.mp3' }, // Audio URL
+            mimetype: 'audio/mp4',
+            ptt: true
+        }, { quoted: mek });
+
+    } catch (error) {
+        console.error(error);
+        reply(`An error occurred: ${error.message}`);
+    }
+});

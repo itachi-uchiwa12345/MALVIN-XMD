@@ -1,25 +1,35 @@
+/*
+Project Name : MALVIN XMD
+Creator      : Malvin King ( Mr Lord Malvin )
+Repo         : https//github.com/kingmalvn/MALVIN-XMD
+Support      : wa.me/263714757857
+*/
 
-const config = require('../config')
-const {cmd , commands} = require('../command')
-const {sleep} = require('../lib/functions')
+const { cmd } = require('../command');
+const { sleep } = require('../lib/functions');
 
 cmd({
     pattern: "restart",
-    alias: ["rebot","reboot"], 
-    react: "🔄",
-    desc: "restart the bot",
+    desc: "Restart the Malvin Xmd",
     category: "owner",
     filename: __filename
 },
-async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-try{
-if (!isOwner) return;
-const {exec} = require("child_process")
-reply("restarting...")
-await sleep(1500)
-exec("pm2 restart all")
-}catch(e){
-console.log(e)
-reply(`${e}`)
-}
-})
+async (conn, mek, m, {
+    from, quoted, body, isCmd, command, args, q, isGroup, senderNumber, reply
+}) => {
+    try {
+        // Get the bot owner's number dynamically from conn.user.id
+        const botOwner = conn.user.id.split(":")[0]; // Extract the bot owner's number
+        if (senderNumber !== botOwner) {
+            return reply("Only the bot owner can use this command❗️.");
+        }
+
+        const { exec } = require("child_process");
+        reply("> Nexus Bot Restarting...");
+        await sleep(1500);
+        exec("pm2 restart all");
+    } catch (e) {
+        console.error(e);
+        reply(`${e}`);
+    }
+});
